@@ -1,7 +1,7 @@
 # readme-polish
 
-[![license](https://img.shields.io/github/license/zhengqiuyang/readme-polish)](LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/zhengqiuyang/readme-polish?style=flat)](https://github.com/zhengqiuyang/readme-polish/stargazers)
+[![license](https://img.shields.io/github/license/zhengqiuyang/readme-polish?v=2)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/zhengqiuyang/readme-polish?style=flat&v=2)](https://github.com/zhengqiuyang/readme-polish/stargazers)
 
 **Upgrade an existing README to the standard of the top repos in its own ecosystem — with a deterministic gate instead of taste alone.**
 
