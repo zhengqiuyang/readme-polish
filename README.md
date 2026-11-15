@@ -1,14 +1,13 @@
 # readme-polish
 
-[![npm](https://img.shields.io/npm/v/dsh-readme-polish)](https://www.npmjs.com/package/dsh-readme-polish)
-[![license](https://img.shields.io/npm/l/dsh-readme-polish)](LICENSE)
+[![license](https://img.shields.io/github/license/zhengqiuyang/readme-polish)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/zhengqiuyang/readme-polish?style=flat)](https://github.com/zhengqiuyang/readme-polish/stargazers)
 
 **Upgrade an existing README to the standard of the top repos in its own ecosystem — with a deterministic gate instead of taste alone.**
 
 把一个**已有**的 README 升级到同生态头部仓库的水准：先做原型校准，再选组件，最后用确定性门禁验收。
 
-Ships twice: as a portable **Agent Skill** and as a **DeepSeek Harness plugin**.
+An [Agent Skills](https://agentskills.io)-compatible skill. For DeepSeek Harness, install the plugin [`dsh-readme-polish`](https://github.com/zhengqiuyang/dsh-readme-polish) instead.
 
 [Install](#install) · [What it does](#what) · [The gate](#gate) · [Verification](#verification) · [Structure](#structure)
 
@@ -17,14 +16,10 @@ Ships twice: as a portable **Agent Skill** and as a **DeepSeek Harness plugin**.
 ## Install
 
 ```bash
-# As an Agent Skill — any Agent Skills-compatible agent
 npx skills add zhengqiuyang/readme-polish
-
-# As a DeepSeek Harness plugin — appears in your profile's skill catalog
-dsh plugin add dsh-readme-polish
 ```
 
-From a checkout: copy this directory into `~/.agents/skills/readme-polish`, or run `dsh plugin add ./readme-polish`.
+Or copy this directory into `~/.agents/skills/readme-polish`; the skill is self-contained.
 
 <a id="what"></a>
 
@@ -34,6 +29,8 @@ From a checkout: copy this directory into `~/.agents/skills/readme-polish`, or r
 2. **Component selection** — a decision table for badges, mermaid diagrams, callouts, `<details>`, centered heroes and banners, with the condition under which each earns its place. Restraint is part of the output.
 3. **Rewrite** — hero with one line of value, explicit anchors, comparison tables where they beat prose, bilingual structure when the repository serves two audiences.
 4. **Verification** — run the gate, then the 15-second test: value proposition above the fold, install command on the first screen, what/why/how answered in the first three sections.
+
+Ask in natural language: *"把我的 README 打磨一下"*, *"this README looks plain, compare it with popular repos"*, *"add badges / mermaid / callouts"*.
 
 <a id="gate"></a>
 
@@ -59,22 +56,20 @@ Exit codes `0/1/2`; `--strict` also fails on warnings; `--json` for CI.
 
 ## Verification
 
-- This README passes its own gate.
-- The DSH plugin provider is covered by `npm test`, which registers it against a stub context and loads the skill body.
+This README passes its own gate:
+
+```bash
+python scripts/check_readme.py README.md
+```
 
 <a id="structure"></a>
 
 ## Structure
 
 ```
-SKILL.md                  # the skill (root, portable)
+SKILL.md                  # the skill
 references/               # component syntax, case studies, competitor survey
 scripts/check_readme.py   # deterministic gate
-index.js                  # DSH plugin: skill provider
-cordis.patch.yml          # inserts the plugin row into a profile
-locale/{en,zh}.json       # Plugins title / description / detail
-docs/DETAIL.md
-test/provider.test.mjs
 ```
 
 ## Limitations

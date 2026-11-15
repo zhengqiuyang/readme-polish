@@ -1,7 +1,0 @@
-{
-  "meta": {
-    "title": "Readme polish",
-    "description": "Upgrade an existing README to the standard of top repos in its own ecosystem: archetype calibration, component restraint, and a deterministic lint gate.",
-    "detail": "docs/DETAIL.md"
-  }
-}

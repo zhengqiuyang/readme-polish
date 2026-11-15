@@ -1,7 +1,0 @@
-{
-  "meta": {
-    "title": "README 打磨",
-    "description": "把已有 README 升级到同生态头部仓库的水准：原型校准、组件克制、确定性 lint 门禁。",
-    "detail": "docs/DETAIL.md"
-  }
-}
