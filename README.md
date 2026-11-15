@@ -7,9 +7,9 @@
 
 把一个**已有**的 README 升级到同生态头部仓库的水准：先做原型校准，再选组件，最后用确定性门禁验收。
 
-An [Agent Skills](https://agentskills.io)-compatible skill. For DeepSeek Harness, install the plugin [`dsh-readme-polish`](https://github.com/zhengqiuyang/dsh-readme-polish) instead.
+Works with Claude Code · Codex · Cursor · Gemini CLI and any [Agent Skills](https://agentskills.io)-compatible agent. In DeepSeek Harness, install the plugin [`dsh-readme-polish`](https://github.com/zhengqiuyang/dsh-readme-polish).
 
-[Install](#install) · [What it does](#what) · [The gate](#gate) · [Verification](#verification) · [Structure](#structure)
+[Install](#install) · [What it does](#what) · [Real runs](#runs) · [The gate](#gate) · [Structure](#structure)
 
 <a id="install"></a>
 
@@ -30,7 +30,17 @@ Or copy this directory into `~/.agents/skills/readme-polish`; the skill is self-
 3. **Rewrite** — hero with one line of value, explicit anchors, comparison tables where they beat prose, bilingual structure when the repository serves two audiences.
 4. **Verification** — run the gate, then the 15-second test: value proposition above the fold, install command on the first screen, what/why/how answered in the first three sections.
 
-Ask in natural language: *"把我的 README 打磨一下"*, *"this README looks plain, compare it with popular repos"*, *"add badges / mermaid / callouts"*.
+<a id="runs"></a>
+
+## Three real runs
+
+| Repository | What the run caught | Output |
+|---|---|---|
+| `monetize-skill` | No factual errors; a full rewrite was the right call | ~100 lines, 5 real badges, 7-node mermaid |
+| `WattWatch` | Dead screenshot link, no LICENSE, no topics, one wrong test count | Structural rebuild |
+| `clipbrain` | **Zero** factual errors, but a fake bilingual pair and a broken License badge | Small surgery, +99/−73 |
+
+The last row is the point: when the content is already good, the correct output is small. Volume is not the goal — calibration and catching structures that lie about themselves are. Full write-ups: [references/case-study.md](references/case-study.md).
 
 <a id="gate"></a>
 
@@ -52,15 +62,7 @@ Ask in natural language: *"把我的 README 打磨一下"*, *"this README looks 
 
 Exit codes `0/1/2`; `--strict` also fails on warnings; `--json` for CI.
 
-<a id="verification"></a>
-
-## Verification
-
-This README passes its own gate:
-
-```bash
-python scripts/check_readme.py README.md
-```
+Ask in natural language: *"把我的 README 打磨一下"*, *"this README looks plain, compare it with popular repos"*, *"add badges / mermaid / callouts"*.
 
 <a id="structure"></a>
 
