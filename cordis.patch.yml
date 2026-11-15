@@ -1,0 +1,4 @@
+- insert:
+    - id: dsh-readme-polish
+      name: 'dsh-readme-polish'
+      config: {}
